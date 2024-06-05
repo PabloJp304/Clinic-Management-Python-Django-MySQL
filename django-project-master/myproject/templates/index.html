@@ -1,0 +1,39 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+{% block title %}Interoperabilidad Clínica{% endblock %}
+
+{% block stylesheets %}
+    {{ block.super }}
+    <style>
+        body {
+            background-color: #34495E;
+        }
+        .center-image {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 25%; 
+        }
+        .center-button {
+            display: block;
+            width: 100px;
+            margin: 20px auto;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+<div class="d-flex align-items-center justify-content-center" style="height: 65vh;">
+    <div class="card mx-auto" style="width: 50rem;">
+        <div class="card-body">
+            <h1 class="card-title text-center" style="font-family: bebas;"><span
+                    style="color: #1F618D;">¡Bienvenido!</span></h1>
+            <img src="{% static 'img/animacion.gif' %}" alt="Descripción de la imagen" class="center-image">
+            <a href="{% url 'pacient' %}">
+                <button class="btn btn-success center-button">Vamos</button>
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}

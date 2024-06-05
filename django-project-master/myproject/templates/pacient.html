@@ -1,0 +1,43 @@
+{% extends 'layouts/base.html' %}
+
+{% load static %}
+
+{% block stylesheets %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #34495E;
+        }
+    </style>
+{% endblock %}
+
+{% block title %}Paciente{% endblock %}
+
+{% block content %}
+<div class="container mb-5">
+    <form method="post">
+        {% csrf_token %}
+        <div class="card mb-4">
+            <div class="card-header">
+                <h2>Paciente</h2>
+            </div>
+            <div class="card-body">
+                {{ pacient_form.as_p }}
+            </div>
+        </div>
+        <div class="card mb-4">
+            <div class="card-header">
+                <h2>Contacto con el Servicio de Salud</h2>
+            </div>
+            <div class="card-body">
+                {{ contact_form.as_p }}
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">
+            <img src="{% static 'img/guardar.png' %}" alt="Guardar" style="width: 40px; height: 40px;">
+        </button> 
+    </form>
+</div>
+{% endblock %}
